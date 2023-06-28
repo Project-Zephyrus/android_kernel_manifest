@@ -4,16 +4,16 @@
   <remote  name="aosp"
     fetch="https://android.googlesource.com/" />
   <remote name="hentai"
-    fetch="ssh://git@github.com/hentaiOS-Devices/"
+    fetch="https://github.com/hentaiOS-Devices"
     revision="refs/heads/TwistedScarlett" />
   <remote name="hentai-common"
-    fetch="ssh://git@github.com/hentaiOS-Devices/"
+    fetch="https://github.com/hentaiOS-Devices"
     revision="refs/heads/common-TwistedScarlett" />
   <default revision="refs/tags/android-13.0.0_r0.84"
     remote="aosp" sync-j="4" />
 
-  <project path="aosp" name="kernel_google_gs" groups="partner" remote="hentai-common" />
-  <project path="private/gs-google" name="kernel_google_gs-priv" groups="partner" remote="hentai" >
+  <project path="aosp" name="kernel_google_gs" groups="partner" remote="hentai" revision="common-TwistedScarlett" />
+  <project path="private/gs-google" name="kernel_google_gs" groups="partner" remote="hentai" revision="TwistedScarlett" >
     <linkfile dest="build.config" src="build.config.slider"/>
     <linkfile dest="build_slider.sh" src="build_slider.sh"/>
     <linkfile dest="build_mixed.sh" src="build_mixed.sh"/>
@@ -27,13 +27,13 @@
     <linkfile dest="update_symbol_list_slider-staging.sh" src="update_symbol_list_slider-staging.sh"/>
     <linkfile dest=".source_date_epoch_dir" src="."/>
   </project>
-  <project path="private/devices/google/bluejay" name="kernel_devices_google_bluejay" groups="partner,bluejay" remote="hentai" >
+  <project path="private/devices/google/bluejay" name="kernel_devices_google_bluejay" groups="partner,bluejay" remote="hentai" revision="TwistedScarlett" >
     <linkfile dest="build_bluejay.sh" src="build_bluejay.sh"/>
     <linkfile dest="update_symbol_list_bluejay-aosp.sh" src="update_symbol_list_bluejay-aosp.sh"/>
     <linkfile dest="update_symbol_list_bluejay-staging.sh" src="update_symbol_list_bluejay-staging.sh"/>
     <linkfile dest="private/gs-google/arch/arm64/boot/dts/google/devices/bluejay" src="dts"/>
   </project>
-  <project path="private/devices/google/lynx" name="kernel_devices_google_lynx" groups="partner,lynx" remote="hentai" >
+  <project path="private/devices/google/lynx" name="kernel_devices_google_lynx" groups="partner,lynx" remote="hentai" revision="TwistedScarlett" >
     <linkfile dest="build_lynx.sh" src="build_lynx.sh"/>
     <linkfile dest="update_symbol_list_lynx-aosp.sh" src="update_symbol_list_lynx-aosp.sh"/>
     <linkfile dest="update_symbol_list_lynx-staging.sh" src="update_symbol_list_lynx-staging.sh"/>
@@ -41,8 +41,8 @@
   </project>
   <project path="private/google-modules/aoc" name="kernel/google-modules/aoc" groups="partner" />
   <project path="private/google-modules/aoc_ipc" name="kernel/google-modules/aoc-ipc" groups="partner" />
-  <project path="private/google-modules/display" name="google-modules_display" groups="partner" remote="hentai" />
-  <project path="private/google-modules/gpu" name="google-modules_gpu" groups="partner" remote="hentai" />
+  <project path="private/google-modules/display" name="kernel/google-modules/display" groups="partner" />
+  <project path="private/google-modules/gpu" name="google-modules_gpu" groups="partner" remote="hentai" revision="TwistedScarlett" />
   <project path="private/google-modules/gxp/gs201" name="kernel/google-modules/gxp/gs201" groups="partner" />
   <project path="private/google-modules/edgetpu/abrolhos" name="kernel/google-modules/edgetpu/abrolhos" groups="partner"/>
   <project path="private/google-modules/edgetpu/janeiro" name="kernel/google-modules/edgetpu/janeiro" groups="partner" />
@@ -66,7 +66,7 @@
   <project path="private/google-modules/uwb" name="kernel/google-modules/uwb" groups="uwb" />
   <project path="private/google-modules/uwb-diags" name="kernel/google-modules/uwb-diags" groups="uwb" />
   <project path="private/google-modules/nfc" name="kernel/google-modules/nfc" groups="partner" />
-  <project path="private/google-modules/wlan/bcmdhd4389" name="google-modules_wlan_bcmdhd_bcm4389" groups="partner" remote="hentai" />
+  <project path="private/google-modules/wlan/bcmdhd4389" name="kernel/google-modules/wlan/bcmdhd/bcm4389" groups="partner" />
   <project path="private/google-modules/wlan/wlan_ptracker" name="kernel/google-modules/wlan/wlan_ptracker" groups="partner" />
   <project path="private/google-modules/wlan/wcn6740/cnss2" name="kernel/google-modules/wlan/qcom/wcn6740/cnss2" groups="partner" revision="refs/tags/android-13.0.0_r0.77" />
   <project path="private/google-modules/wlan/wcn6740/wlan" name="kernel/google-modules/wlan/qcom/wcn6740/wlan" groups="partner" revision="refs/tags/android-13.0.0_r0.77" />
